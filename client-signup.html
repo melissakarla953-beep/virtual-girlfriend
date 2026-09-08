@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Create your Virtual Girlfriend client account." />
+    <title>Join as a Client | Virtual Girlfriend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="signup-page">
+    <div class="page-shell signup-shell">
+      <header class="site-header"><a class="brand" href="index.html" aria-label="Virtual Girlfriend home"><span class="brand-mark">♡</span><span>Virtual <em>Girlfriend</em></span></a><a class="back-link" href="index.html">← Back to home</a></header>
+      <main class="signup-main"><div class="signup-intro"><p class="eyebrow">Your next conversation starts here</p><h1>Join as a <span>client.</span></h1><p>Make space for a little more connection. Create your account and discover someone worth talking to.</p><div class="signup-affirmation"><span>18+</span><div><strong>Adults only</strong><small>Private, respectful conversations</small></div></div></div>
+        <form class="signup-card" data-prototype-form novalidate><div class="form-heading"><span class="step-label">01 / Client account</span><h2>Create your account</h2><p>It only takes a moment.</p></div><label for="client-email">Email</label><input id="client-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required /><label for="client-password">Password</label><input id="client-password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" required /><label for="client-confirm-password">Confirm password</label><input id="client-confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Repeat your password" required /><label class="check-row" for="client-age"><input id="client-age" name="age-confirmation" type="checkbox" required /><span class="custom-check"></span><span>I confirm I am 18 or older</span></label><button class="button button-primary form-submit" type="submit">Create Client Account <span>→</span></button><p class="form-switch">Already have an account? <a href="#login">Log in</a></p><p class="prototype-note">Prototype only. No account or password is stored.</p></form>
+      </main>
+      <footer class="site-footer signup-footer"><p class="copyright">© 2024 Virtual Girlfriend. All rights reserved.</p><div class="footer-links"><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#safety">Safety</a></div><div class="footer-age">18+ <span>Adults Only</span></div></footer>
+    </div><div class="toast" role="status" aria-live="polite"></div><script src="script.js"></script>
+  </body><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+
+</html><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<scrip<script>
+  const sbClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  
+  document.addEventListener("submit", async (e) => {
+    const form = e.target;
+      if (!(form instanceof HTMLFormElement)) return;
+      
+        const emailInput = form.querySelector('input[type="email"]');
+          const passwordInput = form.querySelector('input[type="password"]');
+          
+            if (!emailInput || !passwordInput) return;
+            
+              e.preventDefault();
+                e.stopPropagation();
+                  e.stopImmediatePropagation();
+                  
+                    const email = emailInput.value.trim();
+                      const password = passwordInput.value;
+                      
+                        const { data, error } = await sbClient.auth.signUp({
+                            email,
+                                password
+                                  });
+                                  
+                                    if (error) {
+                                        alert("Error: " + error.message);
+                                            return;
+                                              }
+                                              
+                                                alert("Cuenta creada. Revisa tu correo para confirmarla.");
+                                                });
+                                                </script>
+                                                ></body>
+</html>
